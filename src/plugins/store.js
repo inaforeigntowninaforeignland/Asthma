@@ -1,11 +1,13 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
+import signIn from '@/modules/signIn/view/signIn';
+
 Vue.use(Vuex);
 
-const debug = process.env.NODE_ENV !== 'production';
-
 export default new Vuex.Store({
-  modules: {},
-  strict: debug,
+  modules: {
+    signIn,
+  },
+  strict: false,
 });

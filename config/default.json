@@ -1,0 +1,7 @@
+{
+  "server": {
+    "protocol": "http",
+    "ip": "localhost",
+    "port": "800"
+  }
+}

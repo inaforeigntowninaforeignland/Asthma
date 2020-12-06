@@ -1,13 +1,16 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import AppView from '@/views/appView/vue/AppView.vue';
+import appView from '@/views/appView/vue/appView.vue';
+import authView from '@/views/authView/vue/authView.vue';
 
-import AboutRoutes from '@/modules/about/AboutRoutes';
-import TherapyRoutes from '@/modules/therapy/TherapyRoutes';
-import MeasurementRoutes from '@/modules/measurement/MeasurementRoutes';
-import StatisticsRoutes from '@/modules/statistics/StatisticsRoutes';
-import ProfileRoutes from '@/modules/profile/ProfileRoutes';
+import signUpRoutes from '@/modules/signUp/signUp.routes';
+import aboutRoutes from '@/modules/about/about.routes';
+import therapyRoutes from '@/modules/therapy/therapy.routes';
+import measurementRoutes from '@/modules/measurement/measurement.routes';
+import statisticsRoutes from '@/modules/statistics/statistics.routes';
+import profileRoutes from '@/modules/profile/profile.routes';
+import signInRoutes from '@/modules/signIn/signIn.routes';
 
 Vue.use(VueRouter);
 
@@ -15,13 +18,22 @@ const routes = [
   {
     path: '/',
     redirect: '/profile',
-    component: AppView,
+    component: appView,
     children: [
-      ...ProfileRoutes,
-      ...MeasurementRoutes,
-      ...StatisticsRoutes,
-      ...TherapyRoutes,
-      ...AboutRoutes,
+      ...profileRoutes,
+      ...measurementRoutes,
+      ...statisticsRoutes,
+      ...therapyRoutes,
+      ...aboutRoutes,
+    ],
+  },
+  {
+    path: '/',
+    redirect: '/signIn',
+    component: authView,
+    children: [
+      ...signInRoutes,
+      ...signUpRoutes,
     ],
   },
   {
