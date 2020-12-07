@@ -19,7 +19,7 @@ export default {
   },
   computed: {
     routes() {
-      return this.$router.options.routes[0].children
+      return this.$router.options.routes[1].children
         .filter((route) => route.name !== this.title)
         .map((route, index) => ({
           id: index,

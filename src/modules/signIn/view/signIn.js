@@ -4,7 +4,10 @@ import {
 import {
   required,
   minLength,
+  maxLength,
 } from 'vuelidate/lib/validators';
+
+import signInApi from '@/modules/signIn/signIn.api';
 
 export default {
   mixins: [
@@ -15,19 +18,20 @@ export default {
       username: null,
       password: null,
     },
-    userSaved: false,
     sending: false,
-    lastUser: null,
+    userNotAuthorized: false,
   }),
   validations: {
     form: {
       username: {
         required,
-        minLength: minLength(6),
+        minLength: minLength(1),
+        maxLength: maxLength(20),
       },
       password: {
         required,
-        minLength: minLength(6),
+        minLength: minLength(5),
+        maxLength: maxLength(20),
       },
     },
   },
@@ -47,21 +51,30 @@ export default {
       this.form.username = null;
       this.form.password = null;
     },
-    saveUser() {
+    signIn() {
       this.sending = true;
+      this.userNotAuthorized = false;
 
-      window.setTimeout(() => {
-        this.lastUser = `${this.form.username} ${this.form.password}`;
-        this.userSaved = true;
-        this.sending = false;
-        this.clearForm();
-      }, 1500);
+      signInApi.signIn(this.form)
+        .then(() => {
+          this.sending = false;
+          this.clearForm();
+        })
+        .then(() => {
+          this.$router.push('/profile');
+        })
+        .catch(() => {
+          this.userNotAuthorized = true;
+        })
+        .finally(() => {
+          this.sending = false;
+        });
     },
     validateUser() {
       this.$v.$touch();
 
       if (!this.$v.$invalid) {
-        this.saveUser();
+        this.signIn();
       }
     },
   },

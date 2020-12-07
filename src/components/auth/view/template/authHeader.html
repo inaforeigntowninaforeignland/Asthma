@@ -1,3 +1,15 @@
 <div>
-    <slot></slot>
+    <md-toolbar>
+        <md-button v-if="$route.path === '/signIn'"
+                   to="/signUp">
+            Sign up
+        </md-button>
+
+        <md-button v-if="$route.path === '/signUp'"
+                   to="/signIn">
+            Sign in
+        </md-button>
+
+        <slot></slot>
+    </md-toolbar>
 </div>

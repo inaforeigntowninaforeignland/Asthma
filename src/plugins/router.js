@@ -17,6 +17,15 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    redirect: '/signIn',
+    component: authView,
+    children: [
+      ...signInRoutes,
+      ...signUpRoutes,
+    ],
+  },
+  {
+    path: '/',
     redirect: '/profile',
     component: appView,
     children: [
@@ -28,17 +37,8 @@ const routes = [
     ],
   },
   {
-    path: '/',
-    redirect: '/signIn',
-    component: authView,
-    children: [
-      ...signInRoutes,
-      ...signUpRoutes,
-    ],
-  },
-  {
     path: '*',
-    redirect: '/',
+    redirect: '/signIn',
   },
 ];
 

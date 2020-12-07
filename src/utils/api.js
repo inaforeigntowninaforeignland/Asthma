@@ -1,7 +1,10 @@
 import axios from 'axios';
-import config from 'config';
 
-const baseUrl = `${config.get('server.protocol')}://${config.get('server.ip')}:${config.get('server.port')}/`;
+const protocol = 'http';
+const ip = 'localhost';
+const port = '8000';
+
+const baseUrl = `${protocol}://${ip}:${port}/`;
 
 const api = axios.create({
   baseURL: baseUrl,
@@ -14,7 +17,7 @@ api.interceptors.request.use((configuration) => {
 
     if (token) {
       // eslint-disable-next-line no-param-reassign
-      config.headers.Authorization = `Bearer ${token}`;
+      configuration.headers.Authorization = `Bearer ${token}`;
     }
   }
 

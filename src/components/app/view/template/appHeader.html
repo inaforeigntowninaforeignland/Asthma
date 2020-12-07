@@ -1,18 +1,14 @@
 <div>
-    <slot>
-        <md-toolbar>
-            <md-button class="md-icon-button"
-                       @click="onClickMenu">
-                <md-icon>menu</md-icon>
-            </md-button>
+    <md-toolbar>
+        <md-button class="md-icon-button"
+                   @click="onClickMenu">
+            <md-icon>menu</md-icon>
+        </md-button>
 
-            <span class="md-title">
-                {{ $route.name }}
-            </span>
-        </md-toolbar>
+        <slot></slot>
+    </md-toolbar>
 
-        <app-navigation v-model="showNavigation"
-                        :title="$route.name">
-        </app-navigation>
-    </slot>
+    <app-navigation v-model="showNavigation"
+                    :title="$route.name">
+    </app-navigation>
 </div>

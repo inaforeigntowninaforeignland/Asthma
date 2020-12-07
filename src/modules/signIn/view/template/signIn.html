@@ -12,6 +12,7 @@
 
                                 <md-input name="username"
                                           id="username"
+                                          autocomplete="off"
                                           v-model="form.username"
                                           :disabled="sending"/>
                                 <span class="md-error"
@@ -35,6 +36,7 @@
                                 <md-input name="password"
                                           id="password"
                                           type="password"
+                                          autocomplete="off"
                                           v-model="form.password"
                                           :disabled="sending"/>
                                 <span class="md-error"
@@ -55,8 +57,7 @@
                                  v-if="sending"/>
 
                 <md-card-actions>
-                    <md-button class="md-primary"
-                               :disabled="sending"
+                    <md-button :disabled="sending"
                                to="/signUp">
                         Sign up
                     </md-button>
@@ -69,8 +70,8 @@
                 </md-card-actions>
             </md-card>
 
-            <md-snackbar :md-active.sync="userSaved">
-                The user {{ lastUser }} was saved with success!
+            <md-snackbar :md-active.sync="userNotAuthorized">
+                Sign in error!
             </md-snackbar>
         </form>
     </div>
