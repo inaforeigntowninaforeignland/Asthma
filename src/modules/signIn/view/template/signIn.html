@@ -22,7 +22,12 @@
 
                                 <span class="md-error"
                                       v-else-if="!$v.form.username.minlength">
-                                    Invalid username
+                                    Invalid min length username
+                                </span>
+
+                                <span class="md-error"
+                                      v-else-if="!$v.form.username.maxlength">
+                                    Invalid max length username
                                 </span>
                             </md-field>
                         </div>
@@ -46,7 +51,12 @@
 
                                 <span class="md-error"
                                       v-else-if="!$v.form.password.minlength">
-                                    Invalid password
+                                    Invalid min length password
+                                </span>
+
+                                <span class="md-error"
+                                      v-else-if="!$v.form.password.maxlength">
+                                    Invalid max length password
                                 </span>
                             </md-field>
                         </div>

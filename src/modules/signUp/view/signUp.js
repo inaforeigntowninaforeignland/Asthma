@@ -25,7 +25,7 @@ export default {
     form: {
       username: {
         required,
-        minLength: minLength(1),
+        minLength: minLength(5),
         maxLength: maxLength(20),
       },
       password: {

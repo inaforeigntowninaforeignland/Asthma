@@ -4,6 +4,9 @@
               class="md-layout"
               @submit.prevent="validateMeasurement">
             <md-card>
+                <md-progress-bar md-mode="indeterminate"
+                                 v-if="sending"/>
+
                 <md-card-content>
                     <div class="md-layout md-gutter">
                         <div class="md-layout-item md-small-size-100">
@@ -24,15 +27,17 @@
 
                                 <span class="md-error"
                                       v-else-if="!$v.form.measurement.minlength">
-                                    Invalid measurement
+                                    Invalid min length measurement
+                                </span>
+
+                                <span class="md-error"
+                                      v-else-if="!$v.form.measurement.maxlength">
+                                    Invalid max length measurement
                                 </span>
                             </md-field>
                         </div>
                     </div>
                 </md-card-content>
-
-                <md-progress-bar md-mode="indeterminate"
-                                 v-if="sending"/>
 
                 <md-card-actions>
                     <md-button type="submit"
