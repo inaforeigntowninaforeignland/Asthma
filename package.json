@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint",
     "capacitor:init": "npx cap init asthma-native ru.eltech --web-dir dist",
     "capacitor:android": "npx cap add android",
-    "capacitor:ios": "npx cap add iso",
+    "capacitor:ios": "npx cap add ios",
     "capacitor:copy": "npx cap copy"
   },
   "dependencies": {
