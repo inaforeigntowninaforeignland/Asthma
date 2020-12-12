@@ -1,11 +1,25 @@
 <div>
-    <md-toolbar>
+    <md-toolbar class="md-primary">
         <md-button class="md-icon-button"
                    @click="onClickMenu">
             <md-icon>menu</md-icon>
         </md-button>
 
-        <slot></slot>
+        <div class="avatar"
+             @click="onClickProfile">
+            <md-avatar class="md-avatar-icon md-small">
+                <md-icon>account_circle</md-icon>
+            </md-avatar>
+        </div>
+
+        <span>{{ profile.username }}</span>
+
+        <div class="logout">
+            <md-button class="md-icon-button"
+                       @click="onClickLogout">
+                <md-icon>logout</md-icon>
+            </md-button>
+        </div>
     </md-toolbar>
 
     <app-navigation v-model="showNavigation"
