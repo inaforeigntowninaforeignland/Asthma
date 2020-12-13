@@ -5,7 +5,7 @@ export default [
     path: '/measurement',
     name: 'Measurement',
     meta: {
-      description: 'Some description here',
+      description: 'Adding a new record for statistics',
     },
     component: measurement,
     children: [],

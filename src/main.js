@@ -4,6 +4,8 @@ import VueMaterial from 'vue-material';
 import 'vue-material/dist/vue-material.min.css';
 import 'vue-material/dist/theme/default.css';
 
+import '@/plugins/composition-api';
+
 import router from '@/plugins/router';
 import store from '@/plugins/store';
 

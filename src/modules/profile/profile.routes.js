@@ -5,7 +5,7 @@ export default [
     path: '/profile',
     name: 'Profile',
     meta: {
-      description: 'Some description here',
+      description: 'Adding and editing personal information',
     },
     component: profile,
     children: [],

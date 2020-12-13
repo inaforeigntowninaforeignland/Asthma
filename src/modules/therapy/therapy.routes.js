@@ -5,7 +5,7 @@ export default [
     path: '/therapy',
     name: 'Therapy',
     meta: {
-      description: 'Some description here',
+      description: 'Therapeutic instructions for treatment',
     },
     component: therapy,
     children: [],

@@ -5,7 +5,7 @@ export default [
     path: '/about',
     name: 'About',
     meta: {
-      description: 'Some description here',
+      description: 'About our team and app',
     },
     component: about,
     children: [],

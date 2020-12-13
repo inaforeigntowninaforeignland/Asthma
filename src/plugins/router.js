@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import appView from '@/views/appView/vue/appView.vue';
-import authView from '@/views/authView/vue/authView.vue';
+import auth from '@/views/auth/vue/auth.vue';
+import app from '@/views/app/vue/app.vue';
 
 import signUpRoutes from '@/modules/signUp/signUp.routes';
 import aboutRoutes from '@/modules/about/about.routes';
@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/',
     redirect: '/signIn',
-    component: authView,
+    component: auth,
     children: [
       ...signInRoutes,
       ...signUpRoutes,
@@ -27,7 +27,7 @@ const routes = [
   {
     path: '/',
     redirect: '/profile',
-    component: appView,
+    component: app,
     children: [
       ...profileRoutes,
       ...measurementRoutes,
@@ -38,7 +38,7 @@ const routes = [
   },
   {
     path: '*',
-    redirect: '/signIn',
+    redirect: '/',
   },
 ];
 

@@ -5,7 +5,7 @@ export default [
     path: '/statistics',
     name: 'Statistics',
     meta: {
-      description: 'Some description here',
+      description: 'Statistics of recorded measurements',
     },
     component: statistics,
     children: [],

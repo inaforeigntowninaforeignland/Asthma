@@ -1,4 +1,4 @@
-import appNavigation from '@/components/app/vue/appNavigation.vue';
+import appNavigation from '@/views/app/vue/appNavigation.vue';
 
 export default {
   components: {

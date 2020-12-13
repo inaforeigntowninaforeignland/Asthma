@@ -3,8 +3,8 @@ import {
 } from 'vuelidate';
 import {
   required,
-  minLength,
-  maxLength,
+  maxValue,
+  minValue,
 } from 'vuelidate/lib/validators';
 
 import measurementApi from '@/modules/measurement/measurement.api';
@@ -24,8 +24,8 @@ export default {
     form: {
       measurement: {
         required,
-        minLength: minLength(1),
-        maxLength: maxLength(6),
+        minValue: minValue(300),
+        maxValue: maxValue(1000),
       },
     },
   },

@@ -13,6 +13,9 @@ export default {
           'Content-Type': 'multipart/form-data',
         },
       })
-      .then(({ data }) => localStorage.setItem('token', data.access_token));
+      .then(({ data }) => {
+        localStorage.setItem('username', username);
+        localStorage.setItem('token', data.access_token);
+      });
   },
 };
