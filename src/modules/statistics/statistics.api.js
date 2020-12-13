@@ -2,30 +2,35 @@ import api from '@/utils/api';
 
 export default {
   getStatistics() {
-    return api.get('/user/get_self_info')
+    return api
+      .get('/user/get_self_info')
       .then(({ data }) => {
         const {
-          normalThreshold,
-          warningThreshold,
+          // eslint-disable-next-line camelcase
+          normal_threshold,
+          // eslint-disable-next-line camelcase
+          warning_threshold,
           measurements,
-          slMean,
+          // eslint-disable-next-line camelcase
+          sl_mean,
           extra,
-          dailyStats,
+          // eslint-disable-next-line camelcase
+          daily_stats,
         } = data;
 
         const statistics = {
           thresholds: {
-            ok: normalThreshold,
-            warning: warningThreshold,
+            ok: normal_threshold,
+            warning: warning_threshold,
           },
           x: [],
           y: [],
-          average: slMean,
+          average: sl_mean,
           extra: {
             x: [measurements[measurements.length - 1].time, ...extra.map((i) => i.x)],
             y: [measurements[measurements.length - 1].value, ...extra.map((i) => i.y)],
           },
-          dailyStats,
+          daily_stats,
         };
 
         measurements.forEach((measurement) => {

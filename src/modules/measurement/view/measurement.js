@@ -24,7 +24,7 @@ export default {
     form: {
       measurement: {
         required,
-        minValue: minValue(300),
+        minValue: minValue(100),
         maxValue: maxValue(1000),
       },
     },

@@ -12,9 +12,18 @@ export default {
     };
   },
   created() {
-    profileApi.getProfile()
-      .then((profile) => {
-        this.profile = profile;
-      });
+    this.loadProfile();
+  },
+  activated() {
+    this.loadProfile();
+  },
+  methods: {
+    loadProfile() {
+      profileApi
+        .getProfile()
+        .then((profile) => {
+          this.profile = profile;
+        });
+    },
   },
 };
